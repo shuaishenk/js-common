@@ -114,6 +114,8 @@ Function.prototype.bind3=function(context){
 
 
     // boundReturn.prototype=this.prototype;//返回函数的原型修改为绑定函数的原型,实例就能获取到绑定函数原型的属性(friend),原型继承
+    //我们直接修改 boundReturn.prototype 的时候，也会直接修改绑定函数的 prototype。这个时候，我们可以通过一个空函数来进行中转
+
     fNOP.prototype = this.prototype;
     boundReturn.prototype = new fNOP();
     
